@@ -25,7 +25,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'lervag/vimtex' 
 ""
 " Generic Programming Support 
-Plugin 'ycm-core/YouCompleteMe'
+"Plugin 'ycm-core/YouCompleteMe'
 Plugin 'vim-scripts/a.vim'
 "
 " Markdown / Writting
@@ -35,35 +35,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'kablamo/vim-git-log'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
-
-
-" Theme / Interface
-Plugin 'AnsiEsc.vim'
-Plugin 'sjl/badwolf'
-Plugin 'tomasr/molokai'
-Plugin 'morhetz/gruvbox'
 Plugin 'dracula/vim', { 'name': 'dracula' }
-Plugin 'junegunn/limelight.vim'
-Plugin 'mkarmona/colorsbox'
-Plugin 'romainl/Apprentice'
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'chriskempson/base16-vim'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'AlessandroYorba/Sierra'
-Plugin 'daylerees/colour-schemes'
-Plugin 'effkay/argonaut.vim'
-Plugin 'ajh17/Spacegray.vim'
-Plugin 'atelierbram/Base2Tone-vim'
-Plugin 'colepeters/spacemacs-theme.vim'
-Plugin 'dylanaraps/wal.vim'
-Plugin 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plugin 'relastle/bluewery.vim'
-Plugin 'artanikin/vim-synthwave84'
-Plugin 'altercation/vim-colors-solarized'
-
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'Yggdroot/indentLine'
-Plugin 'mattn/emmet-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -256,7 +228,7 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 " want another compiler backend, you can change it as follows. The list of
 " supported backends and further explanation is provided in the documentation,
 " see ":help vimtex-compiler".
-let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_compiler_method = 'latexmk'
 
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
