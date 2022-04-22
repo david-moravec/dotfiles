@@ -100,11 +100,11 @@ local themes = {
 local chosen_theme = themes[6]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "/usr/local/kitty/bin/kitty"
+local terminal     = "/home/moravec/.local/kitty.app/bin/kitty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "vim"
-local browser      = "google-chrome"
+local browser      = "firefox"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "work", "www", "fun", "4", "5" }
@@ -811,5 +811,6 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 awful.spawn("xrandr --output VGA-0 --left-of eDP")
+awful.spawn("xrandr --output VGA-1 --left-of DVI-I-1")
 awful.spawn("xrandr --output HDMI-0 --right-of eDP")
 -- }}}
