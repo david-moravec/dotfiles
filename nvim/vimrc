@@ -6,8 +6,6 @@ endif
 
 call plug#begin('~/local/share/nvim/site/autoload')
 " Utility
-" " A fuzzy file finder
-Plug 'kien/ctrlp.vim'
 " Comment/Uncomment tool
 Plug 'scrooloose/nerdcommenter'
 " Switch to the begining and the end of a block by pressing %
@@ -22,6 +20,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 " Better syntax-highlighting for filetypes in vim
 Plug 'sheerun/vim-polyglot'
+"tex support
+Plug 'lervag/vimtex' 
 " Intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -36,15 +36,8 @@ Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'} " color 
 
 " Git integration
 Plug 'tpope/vim-fugitive'
-" Auto-close braces and scopes
-"
-"Plug 'SirVer/ultisnips'
-""
-" Generic Programming Support 
-"Plug 'ycm-core/YouCompleteMe'
 Plug 'vim-scripts/a.vim'
 "
-" Markdown / Writting
 
 
 " Git Support
@@ -59,8 +52,6 @@ call plug#end()            " required
 " Configuration Section
 """""""""""""""""""""""""""""""""""""
 set nowrap
-
-" OSX stupid backspace fix
 
 " Show linenumbers
 set number
@@ -92,45 +83,11 @@ set background=dark
    set termguicolors
 " endif
 
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 """""""""""""""""""""""""""""""""""""
 " Mappings configurationn
 """""""""""""""""""""""""""""""""""""
 map <C-n> :NERDTreeToggle<CR>
-map <C-m> :TagbarToggle<CR>
 
 
 " Shortcuts
@@ -161,9 +118,6 @@ set nu rnu
 "colorscheme solarized
 nnoremap <SPACE> <Nop>
 let mapleader="<space>"
-nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:dracula_italic = 0
 colorscheme dracula
@@ -198,3 +152,5 @@ let g:vimtex_compiler_method = 'latexmk'
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
 
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
