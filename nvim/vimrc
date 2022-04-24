@@ -4,41 +4,55 @@ if $TERM == "xterm-256color"
       set t_Co=256
 endif
 
-" Disable file type for vundle
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/local/share/nvim/site/autoload')
 " Utility
+" " A fuzzy file finder
+Plug 'kien/ctrlp.vim'
+" Comment/Uncomment tool
+Plug 'scrooloose/nerdcommenter'
+" Switch to the begining and the end of a block by pressing %
+Plug 'tmhedberg/matchit'
+" A Tree-like side bar for better navigation
+Plug 'scrooloose/nerdtree'
+" A cool status bar
+Plug 'vim-airline/vim-airline'
+" Airline themes
+Plug 'vim-airline/vim-airline-themes'
+" Nord
+Plug 'arcticicestudio/nord-vim'
+" Better syntax-highlighting for filetypes in vim
+Plug 'sheerun/vim-polyglot'
+" Intellisense engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'} " mru and stuff
+Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'} " color highlighting
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+" Auto-close braces and scopes
 "
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-"Plugin 'SirVer/ultisnips'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/fzf'
-Plugin 'godlygeek/tabular'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'lervag/vimtex' 
+"Plug 'SirVer/ultisnips'
 ""
 " Generic Programming Support 
-"Plugin 'ycm-core/YouCompleteMe'
-Plugin 'vim-scripts/a.vim'
+"Plug 'ycm-core/YouCompleteMe'
+Plug 'vim-scripts/a.vim'
 "
 " Markdown / Writting
 
 
 " Git Support
-Plugin 'kablamo/vim-git-log'
-Plugin 'gregsexton/gitv'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dracula/vim', { 'name': 'dracula' }
+Plug 'tpope/vim-fugitive'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'Mofiqul/dracula.nvim'
+
+call plug#end()            " required
 """" END Vundle Configuration 
 
 """""""""""""""""""""""""""""""""""""
@@ -47,7 +61,6 @@ filetype plugin indent on    " required
 set nowrap
 
 " OSX stupid backspace fix
-set backspace=indent,eol,start
 
 " Show linenumbers
 set number
@@ -73,50 +86,12 @@ au FileType tex setlocal nocursorline
 au FileType tex :NoMatchParen
 " Theme and Styling 
 syntax on
-set t_Co=256
 set background=dark
 
 " if (has("termguicolors"))
    set termguicolors
 " endif
 
-"let g:vim_typing_sound = 0                  " sound off
-"let g:vim_typing_sound_command = 'afplay' " or 'afplay'
-"let g:vim_typing_sound_path = '/Volumes/Workspace/Utilities/Sound/9744__horn__typewriter.wav'            " set your sound path
-
-"let base16colorspace=256  " Access colors present in 256 colorspace
-"colorscheme challenger_deep
-"let g:challenger_deep_termcolors = 256
-
-
-" Vim-PDV Configuration 
-
-" Markdown Syntax Support
-" Vim-Alchemist Configuration
-
-" Vim-Supertab Configuration
-
-" Settings for Writting
-
-" Vim-pencil Configuration
-
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" vim-mix-format
-" let g:mix_format_on_save = 1
-
-" AutoComplPop like behavior.
-
-
-" Enable omni completion.
-
-" Enable heavy omni completion.
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-" Fzf Configuration
-" This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -157,16 +132,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :TagbarToggle<CR>
 
-" Omnicomplete Better Nav
-
-" Neocomplete Plugin mappins
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-
-" <C-h>, <BS>: close popup and delete backword char.
-
-" Mapping selecting Mappings
 
 " Shortcuts
 nnoremap <Leader>o :Files<CR> 
@@ -195,7 +160,7 @@ set nu rnu
 "set background=dark
 "colorscheme solarized
 nnoremap <SPACE> <Nop>
-let mapleader=" "
+let mapleader="<space>"
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -208,7 +173,6 @@ set expandtab
 "vimtex options
 " This is necessary for VimTeX to load properly. The "indent" is optional.
 " Note that most plugin managers will do this automatically.
-filetype plugin indent on
 
 " This enables Vim's and neovim's syntax-related features. Without this, some
 " VimTeX features will not work (see ":help vimtex-requirements" for more
