@@ -1,0 +1,11 @@
+[[language]]
+name = "rust"
+auto-format = true
+
+[[language]]
+name = "python"
+auto-format = true
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "79", "--quiet", "-"]
