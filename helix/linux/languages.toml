@@ -1,0 +1,33 @@
+[language-server.clangd]
+command = "clangd"
+args=["--query-driver=C:\\msys64\\ucrt64\\include"]
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[[language]]
+name = "python"
+language-servers = ["pylsp"]
+auto-format = true
+
+# [language-server.pylsp.config.pylsp]
+# plugins.pylsp_mypy.enabled = true
+# plugins.pylsp_mypy.live_mode = true
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "79", "--quiet", "-"]
+
+[[language]]
+name = "c"
+language-servers = ["clangd"]
+file-types = ["c", "h"]
+formatter = { command = 'clang-format' }
+auto-format = true
+
+[[language]]
+name = "cpp"
+file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
+formatter = { command = 'clang-format' }
+auto-format = true

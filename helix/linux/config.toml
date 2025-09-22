@@ -1,9 +1,10 @@
-theme = "catppuccin_mocha"
+theme = "tokyonight"
 
 [editor]
 line-number = "relative"
 auto-format = true
 mouse = false
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -21,6 +22,14 @@ mode.select = "SELECT"
 [keys.normal]
 0 = "extend_to_line_start"
 "$" = "extend_to_line_end"
+C-g = [
+  ":write-all", 
+  ":new", 
+  ":insert-output lazygit", 
+  ":buffer-close!", 
+  ":redraw", 
+  ":reload-all"
+]
 
 [keys.insert]
 "C-[" = "normal_mode"
