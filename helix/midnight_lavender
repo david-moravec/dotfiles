@@ -1,6 +1,6 @@
 # midnight_lavender — minimal variant
-# Background #1a1b2c · keywords #a7a0f6 · types #7fd6e8 · text #c9c8cf
-# Everything else is monochrome: only keywords and types carry hue.
+# Background #1a1b2c · keywords #a7a0f6 · strings #89acea · text #c9c8cf
+# Only keywords, types and strings carry hue.
 
 # Syntax highlighting
 # -------------------
@@ -9,13 +9,13 @@
 "type.builtin" = "type"
 "type.enum.variant" = "type"
 "constructor" = "text"
-"constant" = "text"
-"constant.character" = "text"
-"constant.character.escape" = "text"
-"string" = "text"
-"string.regexp" = "text"
-"string.special" = "text"
-"string.special.symbol" = "text"
+"constant" = "string"
+"constant.character" = "string"
+"constant.character.escape" = "string"
+"string" = "string"
+"string.regexp" = "string"
+"string.special" = "string"
+"string.special.symbol" = "string"
 "comment" = { fg = "overlay1", modifiers = ["italic"] }
 "variable" = "text"
 "variable.parameter" = "text"
@@ -123,10 +123,11 @@ overlay2 = "#8b8ea8"
 subtext0 = "#a8a7b4"
 text = "#c9c8cf"
 
-# Only these two carry hue in code.
+# Only these three carry hue in code.
 purple = "#a7a0f6"
 # type = "#7fd6e8"
 type = "#a7a0f6"
+string = "#89acea"
 
 # Diagnostics / diffs only.
 red = "#f28f9b"
