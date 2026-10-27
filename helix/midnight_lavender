@@ -80,13 +80,13 @@
 
 "ui.cursor" = { fg = "base", bg = "overlay2" }
 "ui.cursor.primary" = { fg = "base", bg = "text" }
-"ui.cursor.match" = { fg = "text", bg = "surface2", modifiers = ["bold"] }
+"ui.cursor.match" = { fg = "match", modifiers = ["bold"] }
 
 "ui.cursor.primary.normal" = { fg = "base", bg = "text" }
-"ui.cursor.primary.insert" = { fg = "base", bg = "text" }
-"ui.cursor.primary.select" = { fg = "base", bg = "text" }
+"ui.cursor.primary.insert" = { fg = "base", bg = "cursor_blue" }
+"ui.cursor.primary.select" = { fg = "base", bg = "purple" }
 "ui.cursor.normal" = { fg = "base", bg = "overlay2" }
-"ui.cursor.insert" = { fg = "base", bg = "overlay2" }
+"ui.cursor.insert" = { fg = "base", bg = "cursor_blue" }
 "ui.cursor.select" = { fg = "base", bg = "overlay2" }
 
 "ui.cursorline.primary" = { bg = "cursorline" }
@@ -128,6 +128,8 @@ purple = "#a7a0f6"
 # type = "#7fd6e8"
 type = "#a7a0f6"
 string = "#89acea"
+match = "#fab387"
+cursor_blue = "#89b4fa"
 
 # Diagnostics / diffs only.
 red = "#f28f9b"
