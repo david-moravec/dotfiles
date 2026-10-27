@@ -1,0 +1,136 @@
+# midnight_lavender — minimal variant
+# Background #1a1b2c · keywords #a7a0f6 · types #7fd6e8 · text #c9c8cf
+# Everything else is monochrome: only keywords and types carry hue.
+
+# Syntax highlighting
+# -------------------
+"attribute" = "text"
+"type" = "type"
+"type.builtin" = "type"
+"type.enum.variant" = "type"
+"constructor" = "text"
+"constant" = "text"
+"constant.character" = "text"
+"constant.character.escape" = "text"
+"string" = "text"
+"string.regexp" = "text"
+"string.special" = "text"
+"string.special.symbol" = "text"
+"comment" = { fg = "overlay1", modifiers = ["italic"] }
+"variable" = "text"
+"variable.parameter" = "text"
+"variable.builtin" = "text"
+"variable.other.member" = "text"
+"label" = "text"
+"punctuation" = "overlay2"
+"punctuation.special" = "overlay2"
+"keyword" = "purple"
+"keyword.control" = "purple"
+"keyword.control.conditional" = "purple"
+"operator" = "text"
+"function" = "text"
+"markup.heading" = { fg = "text", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "text", modifiers = ["underlined"] }
+"markup.link.text" = "text"
+"markup.link.label" = "text"
+"markup.list" = "text"
+"markup.raw" = "overlay2"
+"markup.quote" = { fg = "subtext0", modifiers = ["italic"] }
+"diff.plus" = "type"
+"diff.minus" = "red"
+"diff.delta" = "overlay2"
+
+# User Interface
+# --------------
+"ui.background" = { fg = "text", bg = "base" }
+
+"ui.gutter" = { fg = "overlay0" }
+"ui.linenr" = { fg = "overlay0" }
+"ui.linenr.selected" = { fg = "text" }
+
+"ui.statusline" = { fg = "subtext0", bg = "surface0" }
+"ui.statusline.inactive" = { fg = "overlay0", bg = "surface0" }
+"ui.statusline.normal" = { fg = "base", bg = "purple", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "base", bg = "text", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "base", bg = "overlay2", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "text", bg = "surface0" }
+"ui.window" = { fg = "crust" }
+"ui.help" = { fg = "overlay2", bg = "surface0" }
+
+"ui.bufferline" = { fg = "overlay1", bg = "surface0" }
+"ui.bufferline.active" = { fg = "text", bg = "base", underline = { color = "overlay2", style = "line" } }
+"ui.bufferline.background" = { bg = "surface0" }
+
+"ui.text" = "text"
+"ui.text.focus" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "overlay1" }
+"ui.text.directory" = { fg = "text", modifiers = ["bold"] }
+
+"ui.virtual" = "overlay0"
+"ui.virtual.ruler" = { bg = "surface0" }
+"ui.virtual.indent-guide" = { fg = "surface1" }
+"ui.virtual.inlay-hint" = { fg = "overlay0", bg = "surface0" }
+"ui.virtual.jump-label" = { fg = "purple", modifiers = ["bold"] }
+"ui.virtual.whitespace" = "overlay0"
+
+"ui.selection" = { bg = "surface1" }
+
+"ui.cursor" = { fg = "base", bg = "overlay2" }
+"ui.cursor.primary" = { fg = "base", bg = "text" }
+"ui.cursor.match" = { fg = "text", bg = "surface2", modifiers = ["bold"] }
+
+"ui.cursor.primary.normal" = { fg = "base", bg = "text" }
+"ui.cursor.primary.insert" = { fg = "base", bg = "text" }
+"ui.cursor.primary.select" = { fg = "base", bg = "text" }
+"ui.cursor.normal" = { fg = "base", bg = "overlay2" }
+"ui.cursor.insert" = { fg = "base", bg = "overlay2" }
+"ui.cursor.select" = { fg = "base", bg = "overlay2" }
+
+"ui.cursorline.primary" = { bg = "cursorline" }
+
+"ui.highlight" = { bg = "surface1", modifiers = ["bold"] }
+
+"ui.menu" = { fg = "overlay2", bg = "surface0" }
+"ui.menu.selected" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "overlay2", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "overlay2", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+
+error = "red"
+warning = "yellow"
+info = "overlay2"
+hint = "overlay2"
+
+[palette]
+base = "#1a1b2c"
+mantle = "#16172a"
+crust = "#121322"
+
+surface0 = "#242639"
+surface1 = "#32344b"
+surface2 = "#42455f"
+
+overlay0 = "#555872"
+overlay1 = "#6b6e88"
+overlay2 = "#8b8ea8"
+
+subtext0 = "#a8a7b4"
+text = "#c9c8cf"
+
+# Only these two carry hue in code.
+purple = "#a7a0f6"
+# type = "#7fd6e8"
+type = "#a7a0f6"
+
+# Diagnostics / diffs only.
+red = "#f28f9b"
+yellow = "#e8d18a"
+
+selection = "#32344b"
+cursorline = "#22233a"
